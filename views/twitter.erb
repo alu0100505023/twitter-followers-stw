@@ -41,7 +41,7 @@
 			<% if @name == ''%>
 				<p id="warning"> No se ha introducido usuario o es incorrecto </p>
 			<%else%>
-        <p><b> Usuario <i><%= @name %></i></b></p>
+        <p> Usuario: <b><i><%= @name %></i></b></p>
 			<%end %>
 
 			<% if @name != ''%>
@@ -59,14 +59,17 @@
 				<%else%>
 					<p>Tus amigos y sus seguidores :</p>
 					<ol>
-						<% @todo_tweet.each do |i| %> 
-							<li id="col"><%= i %><br></li>
+						<% @todo_tweet.each do |i| %>
+							 
+							<li id="col" <li class="list-group-item"><%= @todo_tweet[i][1] %>  con <%= @todo_tweet[i][2] %> Followers <br></li>
 						<% end %>
 					</ol>
 				<%end%>
 			<%end%>
 		</div>
 
-		<div class="navbar navbar-inverse navbar-fixed-bottom">	
+		<div class="navbar navbar-inverse navbar-fixed-bottom">
+		<a class="navbar-brand" href="http://www.ull.es/view/centros/etsii/Inicio/es">Sistemas y Tecnologias Web 2014-15</a>	
+		<a class="navbar-brand pull-right" href="https://github.com/alu0100505023">Javier C. Rodriguez Gomez</a>
 	</body>
 </html>
