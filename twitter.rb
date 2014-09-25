@@ -4,7 +4,7 @@ require 'sinatra'
 
 require './configure'
 
-set :port, 4444
+set :port, 2222
 
 get '/' do
   @todo_tweet = []
