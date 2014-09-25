@@ -59,9 +59,9 @@
 				<%else%>
 					<p>Tus amigos y sus seguidores :</p>
 					<ol>
-						<% @todo_tweet.each do |i| %>
+						<% @todo_tweet.each do |a,b| %>
 							 
-							<li id="col" <li class="list-group-item"><%= @todo_tweet[i][1] %>  con <%= @todo_tweet[i][2] %> Followers <br></li>
+							<li id="col" <li class="list-group-item"><b><%= a.to_s %></b>  con <b><%= b.to_s %></b> followers <br></li>
 						<% end %>
 					</ol>
 				<%end%>

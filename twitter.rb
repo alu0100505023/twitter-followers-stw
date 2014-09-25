@@ -4,7 +4,7 @@ require 'sinatra'
 
 require './configure'
 
-set :port, 2222
+set :port, 4444
 
 get '/' do
   @todo_tweet = []
@@ -19,16 +19,15 @@ post '/' do
   @name = params[:firstname] || ''
   @number = params[:n].to_i
   @number = 1 if @number <= 0
+
   if client.user? @name 
 	
-	ultimos_t=client.friends(@name,{})
+	seguidores=client.friends(@name,{})
 	
-	ultimos_t=ultimos_t.map { |i| [i.name , i.followers_count]}
+	seguidores=seguidores.map { |i| [i.name , i.followers_count]}
 
-	@todo_tweet=ultimos_t.sort_by{|a,b| b }.reverse!.take(@number)
+	@todo_tweet=seguidores.sort_by{|a,b| b }.reverse!.take(@number)
 	
-		
-
   end
 
   erb :twitter
